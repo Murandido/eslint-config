@@ -1,10 +1,13 @@
 {
-  "name": "eslint-config-murandido",
+  "name": "eslint-config",
   "version": "1.0.0",
   "description": "ESLint configuration of murandido",
   "main": "index.js",
   "author": "murandido",
   "license": "MIT",
+  "repository": {
+    "url": "murandido/eslint-config"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
