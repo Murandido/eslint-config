@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config",
+  "name": "@murandido/eslint-config",
   "version": "1.0.0",
   "description": "ESLint configuration of murandido",
   "main": "index.js",
