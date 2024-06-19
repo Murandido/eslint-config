@@ -10,23 +10,59 @@
 
 ## Setup
 
-1. Install the dependencies
+### React (with Next.js)
+
+Install dependencies:
 ```
 npm i -D eslint @murandido/eslint-config
+```
+Inside `eslintrc.config.js`
+```
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-or
+import js from "@eslint/js";
+import { FlatCompat } from "@eslint/eslintrc";
 
-yarn add --dev @murandido/eslint-config
+import murandidoConfigNext from "@murandido/eslint-config/next";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
+});
+export default [...compat.extends("next/core-web-vitals"), murandidoConfigNext];
+
 ```
 
-2. Create a `.eslintrc.json` file extending the config:
+### React (without Next.js)
+
+Install dependencies:
 ```
-{
-  "extends": "@murandido/eslint-config/react"
-  // "extends": "@murandido/eslint-config/node"
-}
+npm i -D eslint @murandido/eslint-config
+```
+Inside `eslintrc.config.js`
+```
+import murandidoConfigReact from "@murandido/eslint-config/react";
+
+export default [murandidoConfigReact];
+
 ```
 
-> You can also use a `.eslintrc.js` instead of JSON if you prefer.
+### Node.js
+
+Install dependencies:
+```
+npm i -D eslint @murandido/eslint-config
+```
+Inside `eslintrc.config.js`
+```
+import murandidoConfigNode from "@murandido/eslint-config/node";
+
+export default [murandidoConfigNode];
+
+```
 
 > Repository created based on the [`Rocketseat/eslint-config`](https://github.com/Rocketseat/eslint-config-rocketseat) repository.
